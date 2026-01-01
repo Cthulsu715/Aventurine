@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色故事 | 檔案紀錄</title>
+    <style>
+        body {
+            background-color: #1E1E1E;
+            color: #D4D4D4;
+            font-family: "Microsoft JhengHei", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: radial-gradient(circle at center, #2B2F33 0%, #1E1E1E 100%);
+        }
+        .story-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: rgba(30, 30, 30, 0.95);
+            border: 1px solid #C4A15A;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
+            padding: 40px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+        }
+        .page-header h1 {
+            color: #C4A15A;
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .page-header p {
+            color: #0F8A7B;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+        .tab-buttons {
+            display: flex;
+            justify-content: flex-start;
+            border-bottom: 2px solid #C4A15A;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            background-color: #2B2F33;
+            color: #888;
+            border: none;
+            outline: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab-btn:hover {
+            background-color: #333;
+            color: #C4A15A;
+        }
+        .tab-btn.active {
+            background-color: #C4A15A;
+            color: #1E1E1E;
+        }
+        .tab-content {
+            display: none;
+            padding: 30px;
+            border: 1px solid #444;
+            border-top: none;
+            background-color: #232323;
+            min-height: 300px;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content h2 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 0;
+            border-left: 4px solid #0F8A7B;
+            padding-left: 15px;
+        }
+        .tab-content p {
+            line-height: 1.8;
+            color: #ccc;
+            text-align: justify;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px dashed #666;
+            transition: 0.3s;
+        }
+        .back-home:hover {
+            color: #C4A15A;
+            border-color: #C4A15A;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <div class="page-header">
+            <h1>角色故事</h1>
+            <p>Character ARCHIVE</p>
+        </div>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'story1')">故事 I</button>
+            <button class="tab-btn" onclick="openTab(event, 'story2')">故事 II</button>
+            <button class="tab-btn" onclick="openTab(event, 'story3')">故事 III</button>
+            <button class="tab-btn" onclick="openTab(event, 'story4')">故事 IV</button>
+        </div>
+
+        <div id="story1" class="tab-content" style="display: block;"> 
+            <p>「關於那位新員工，我有一些情況要向您報告。」</p>
+            <p>「什麼事讓你這麼擔心，埃爾文？」</p>
+            <p>「關於他的投訴，不管是正式的還是非正式的，像紙片一樣塞滿了我的郵箱，我想…您或許可以重新考慮是否接納他為戰略投資部的一員。」</p>
+            <p>「他們都寫了什麼？」</p>
+            <p>「主要是他的身份，那雙眼睛……」</p>
+            <p>「他曾欺騙市場開拓部，茨岡尼亞貧瘠的黃土藏著尚未被有效開發利用的能源。在他們投入巨額資金進行開採後，才發現根本是無稽之談。」</p>
+            <p>「還有駭人聽聞的『艾吉哈佐砂金案』，他哄騙博識學會相信那裡埋藏著蟲皇『塔伊茲育羅斯』的屍體——那幫學者謹慎又謹慎，卻還是落入了對方的圈套。」</p>
+            <p>「還有茨岡尼亞酋長國議員來信，譴責他的部落曾破壞決議，禍亂人心，致使氏族間和平局勢發生重大變化，茨岡尼亞與公司間協議條款的簽訂屢次延期。此人如今入職公司，其影響極為惡劣……」</p>
+            <p>「如果只是這些的話，就不必說了。」</p>
+            <p>「…您都知道？」</p>
+            <p>「每一種寶石都有獨特的價值，而我們的工作就是『投資』。」</p>
+            <p>「也不用安撫那些來信的老頑固，這些風言風語遲早會傳到——不，應該已經傳到他耳邊了。正好，就看看他到底能給我們帶來多大的驚喜吧。」</p>
+        </div>
+
+        <div id="story2" class="tab-content"> 
+            <p>「小子，你真行啊…用神乎其神的手段搬光了我的產業。但我絕不會投降，大不了，我就把這裡全炸咯…你能怎麼辦？」</p>
+            <p>伊伊瑪尼喀的「瘋牛」示意手下鬆手，他從桌子上抬起頭來，拍了拍衣領上的灰塵。「你們，高高在上的公司狗，根本看不起流浪者，對吧？但你現在在我們的地盤，就得按我們的方式。」</p>
+            <p>「瘋牛」清空彈匣，往槍中裝入一粒子彈，丟在他腳邊。「六次，最多六次槍響之後，生死由命。你敢不敢？」</p>
+            <p>他蹲下來，撿起槍。「用槍指著我的人太多了，甚至有人直接扣下了扳機…但你猜，為什麼我還能站在這兒？」</p>
+            <p>他站起來，逼視著「瘋牛」的眼睛，舉起槍，抵住自己的心臟。「因為最後，槍都會來到我手裡。」</p>
+            <p>「而現在，這個遊戲令我有些厭煩了…六分之一的概率遠遠不夠，要挑釁命運——」六聲連續的槍響在死寂的星艦中炸開，煙塵過後，他再次舉起槍，朝「瘋牛」走去，而彈匣里有一顆新的子彈。</p>
+            <p>「就得先學會把自己變成骰子。」</p>
+            <p>「——你不肯投降，但憑什麼？就憑這拙劣的概率遊戲？還是……」他調轉槍口，指向黑暗中的某處。</p>
+            <p>「她？」</p>
+            <p>槍口所指的方向，一位同樣舉著手槍的女士緩緩出現。看到她的一瞬間，「瘋牛」仿佛抓到了救命稻草。</p>
+            <p>「翡翠女士，這和說好的不一樣……」就在同時，兩人開槍，在雙方各自背後的暗處，兩個黑衣人應聲倒下。</p>
+            <p>「公司的敵人還真是無處不在，對吧？」女士從容地收起手槍，拿出化妝鏡，檢視了一下自己的儀容。</p>
+            <p>「拿你我的生命作餌，讓他們爭相啄食，誤以為這是一場內訌，卻被一網打盡…不錯的詭計，只不過太驚險了些。」他微笑著歡迎對方的到來，雙手卻微微顫抖。</p>
+            <p>「詭計？不，只是一場測試罷了。」</p>
+            <p>優雅的女士攤開手掌，一枚閃爍著奇異色澤的「砂金石」躺在她的手心。「沒什麼奇怪的，被渴望，被追逐，被切割，被出售…這都是寶石的宿命。」</p>
+            <p>「但你還是有許多可做的，全憑你怎麼看待自己。」</p>
+        </div>
+
+        <div id="story3" class="tab-content"> 
+            <p>他走入走廊最深處的房間，他還記得上一次來這裡的時候，自己還是個面目可憎的囚犯。現在，他站在這裡，面向立於部門頂點的人們。
+            <p>他聽金髮的女性念著冗長無趣的報告，那些冰冷的數字既無法傳達他行走在生死邊緣的驚險，亦無法告訴他們過程中他失去了多少，又得到了多少。他只好奇她是人類，還是智械？
+            <p>而那顆象徵權力與未來的「砂金石」即將被正式交予他手中——豁出性命拿到手的東西，在得到的一剎那，對他而言就失去了誘惑與價值。
+            <p>「『砂金』，你還有什麼問題嗎？」會議的最後，翡翠——在場的人里，他只認識她——開口問道。
+            <p>「茨岡尼亞的埃維金人…他們後來怎麼樣了？」
+            <p>「很遺憾，茨岡尼亞已經沒有埃維金人了。你是最後的幸運兒。」
+            <p>「那在██星球上幫助過我的那些人呢？我想，現在我可以回報他們了。」
+            <p>「他們也都不在了。」</p>
+            <p>......</p>
+            <p>他木然地回到自己的辦公室。桌上，那顆砂金石閃動著奇異的光，仿佛在恭喜他，又仿佛在嘲弄他。
+            <p>「在與命運搏鬥的時候，你真的是幸運的那方嗎？」
+        </div>
+
+        <div id="story4" class="tab-content"> 
+            <p>「匹諾康尼…『鑽石』終於打算對它動手了？」</p>
+            <p>桌上的微縮模型不斷旋轉，晶瑩剔透的憶泡不斷泛出微小的泡沫。</p>
+            <p>「這是一筆超乎想像的歷史壞帳，所以背後的利益…高得驚人。」</p>
+            <p>面前的人背對著他，望著庇爾波因特黃昏時紫紅的天空。</p>
+            <p>「但為什麼是我？」</p>
+            <p>那人依舊背對著他，他無法用自己善於捕捉的眼睛去揣測這個決定背後的真實用意。</p>
+            <p>「思來想去，我覺得你最合適。」</p>
+            <p>「這甚至只是我們第二次談話，你這麼信任我？」</p>
+            <p>「錯了，我壓根沒有信過你——也許『翡翠』會，但我不會。」</p>
+            <p>「沒準這一次，好運不會再站在你這邊了，而你也將為自己一直以來的幸運付出代價。」</p>
+            <p>面前的人終於轉了過來，遠處的大樓反射出歐泊石般七彩的光芒，而一隻八音盒兀自作響。</p>
+            <p>「但那不正是你所渴望的東西嗎？」</p>
+        </div>
+
+        <a href="Index.html" class="back-home">← 返回主頁 (RETURN)</a>
+    </div>
+
+    <script>
+        function openTab(evt, storyName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(storyName).style.display = "block";
+            if(evt) evt.currentTarget.className += " active";
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            var firstBtn = document.getElementsByClassName("tab-btn")[0];
+            if (firstBtn) {
+                firstBtn.click(); 
+            }
+        });
+    </script>
+</body>
+</html>

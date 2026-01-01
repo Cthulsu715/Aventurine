@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>砂金 | 個人品牌部落格 - 企業高管形象</title>
+    <script src="script.js" defer></script>
+    <style>
+        :root {
+            --color-gold: #C4A15A;
+            --color-black: #1E1E1E;
+            --color-dark-gray: #2B2F33;
+            --color-accent-green: #0F8A7B;
+            --color-text-light: #D4D4D4;
+        }
+        @font-face {
+            font-family: 'FangMingKeBen';
+            src: url('path/to/your/fangmingkeben.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            background-color: var(--color-black);
+            color: var(--color-text-light);
+            font-family: 'FangMingKeBen', 'Noto Sans TC', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #F8D588;
+        }
+        .luxury-button {
+            background-color: var(--color-gold);
+            color: var(--color-black); 
+            border: none;
+            padding: 15px 35px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        .luxury-button:hover {
+            background-color: #F8D588;
+            box-shadow: 0 0 20px var(--color-gold), 0 0 30px rgba(196, 161, 90, 0.7); 
+            transform: scale(1.05);
+        }
+        .full-screen-scroll {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 5%;
+            box-sizing: border-box;
+            position: relative; 
+            overflow: hidden; 
+        }
+        #home {
+            min-height: 100vh;
+            padding-top: 100px;
+            text-align: center;
+        }
+        .character-image {
+            max-width: 600px;
+            height: auto;
+            box-shadow: 0 0 50px rgba(196, 161, 90, 0.3);
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .main-title {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(196, 161, 90, 0.5);
+        }
+        .gold-text {
+            color: var(--color-gold);
+        }
+        #gambling-core {
+            background-color: var(--color-dark-gray);
+            border: 2px solid var(--color-gold);
+            padding: 40px 60px;
+            margin-top: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+        }
+        #roulette-display {
+            display: flex;
+            justify-content: space-around;
+            font-size: 4em;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border: 1px dashed var(--color-accent-green);
+        }
+        .icon-chip {
+            color: var(--color-gold);
+            text-shadow: 0 0 5px var(--color-gold);
+        }
+        .note {
+            font-size: 0.9em;
+            color: #999999;
+            margin-top: 20px;
+        }
+        .report-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            padding: 50px;
+            border: 1px solid var(--color-gold);
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 160px; 
+            gap: 40px;
+            align-items: start;
+        }
+        .report-container::before {
+            content: ""; position: absolute; top: -2px; left: -2px;
+            width: 50px; height: 50px;
+            border-top: 4px solid var(--color-gold);
+            border-left: 4px solid var(--color-gold);
+        }
+        .report-container::after {
+            content: ""; position: absolute; bottom: -2px; right: -2px;
+            width: 50px; height: 50px;
+            border-bottom: 4px solid var(--color-gold);
+            border-right: 4px solid var(--color-gold);
+        }
+        .report-content { display: flex; flex-direction: column; }
+        .report-title-group {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(196, 161, 90, 0.3);
+            padding-bottom: 20px;
+        }
+        .report-main-title {
+            font-size: 3.2em; font-weight: 900; color: var(--color-gold);
+            line-height: 1.2; margin: 0;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .report-subtitle {
+            font-size: 1.5em; color: var(--color-accent-green);
+            margin: 10px 0 0 0; font-weight: normal; letter-spacing: 1px;
+        }
+        .report-body {
+            font-size: 1.1em; color: #ddd; line-height: 1.9; text-align: justify;
+        }
+        .report-body p { margin-bottom: 1.5em; }
+        .report-body h3 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-left: 4px solid var(--color-gold);
+            padding-left: 15px;
+            letter-spacing: 1px;
+        }
+        .report-quote {
+            font-size: 1.4em;
+            font-style: italic;
+            color: var(--color-gold);
+            margin: 30px 0;
+            padding: 20px 40px;
+            border-top: 1px solid rgba(196, 161, 90, 0.3);
+            border-bottom: 1px solid rgba(196, 161, 90, 0.3);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .report-image-box {
+            width: 100%; aspect-ratio: 3 / 4; 
+            background-color: #438EDB;
+            border: 2px solid #fff;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .profile-photo {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .report-image-box:hover .profile-photo { transform: scale(1.05); }
+        @media (max-width: 900px) {
+            .report-container { grid-template-columns: 1fr; padding: 30px; }
+            .report-image-box { width: 250px; margin: 0 auto 30px auto; order: -1; }
+        }
+        .journal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+        .mini-report {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            border: 1px solid var(--color-gold);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            position: relative;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr 120px; 
+            gap: 25px;
+            align-items: start;
+        }
+        .mini-report::before {
+            content: ""; position: absolute; top: -1px; left: -1px;
+            width: 30px; height: 30px;
+            border-top: 3px solid var(--color-gold);
+            border-left: 3px solid var(--color-gold);
+        }
+        .mini-report::after {
+            content: ""; position: absolute; bottom: -1px; right: -1px;
+            width: 30px; height: 30px;
+            border-bottom: 3px solid var(--color-gold);
+            border-right: 3px solid var(--color-gold);
+        }
+        .mini-report .report-main-title {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        .mini-report .report-subtitle {
+            font-size: 1em;
+            margin: 0 0 15px 0;
+            border-bottom: 1px solid rgba(196, 161, 90, 0.3);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .mini-report .report-body {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .mini-report .report-body p { margin-bottom: 0.5em; }
+        .mini-image-box {
+            width: 100%; aspect-ratio: 3 / 4; 
+            background-color: #438EDB; 
+            border: 1px solid #fff; 
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .mini-report { grid-template-columns: 1fr; }
+            .mini-image-box { width: 100px; margin: 0 auto 15px 0; order: -1; }
+        }
+        #main-banner {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: visible;
+            z-index: 1000;
+            border-bottom: 3px solid var(--color-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+        .banner-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('images/Aventurine.jpg'); 
+            background-position: center 20%;
+            background-size: cover;
+            filter: blur(8px) brightness(0.6);
+            z-index: 1;
+        }
+        .banner-content {
+            position: relative;
+            z-index: 10;
+            width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .banner-left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+        }
+        .logo-box {
+            border: 3px solid #C4A15A;
+            padding: 15px 40px;
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5em;
+            color: #fff;
+            letter-spacing: 5px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #C4A15A;
+            background-color: rgba(0,0,0,0.3);
+            box-shadow: 0 0 15px rgba(196, 161, 90, 0.4);
+        }
+        .banner-separator {
+            width: 100px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner-separator svg {
+            width: 100%;
+            height: 100%;
+        }
+        .banner-right {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            padding: 0; margin: 0;
+        }
+        .nav-menu a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+        .nav-menu a:hover {
+            color: #C4A15A;
+            text-shadow: 0 0 10px #C4A15A;
+        }
+        .nav-menu li { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(20, 20, 20, 0.95);
+            min-width: 360px;
+            border: 1px solid #C4A15A;
+            border-radius: 4px;
+            padding: 10px 0;
+            z-index: 100;
+        }
+        .nav-menu li:hover .dropdown-content { display: block; }
+        .dropdown-content a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #333;
+            text-align: left;
+            line-height: 1.5;
+            white-space: normal;
+        }
+        .dropdown-content a:hover {
+            background-color: #C4A15A;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header id="main-banner">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+            <div class="banner-left">
+                <div class="logo-box">AVENTURINE</div>
+            </div>
+            <nav class="banner-right">
+                <ul class="nav-menu">
+                    <li><a href="#home">HOME</a></li>
+                    <li>
+                        <a href="javascript:void(0)">故事檔案 ▾</a>
+                        <div class="dropdown-content">
+                            <a href="Eidolons_Stories.html">故事檔案</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">角色相關PV ▾</a>
+                        <div class="dropdown-content">
+                            <a href="https://www.bilibili.com/video/BV1VH4y1M7t5/" target="_blank">《崩壞:星穹鐵道》星旅一瞬：「命運從未公平，但...」</a>
+                            <a href="https://www.bilibili.com/video/BV12x421m7K9/" target="_blank">《崩壞:星穹鐵道》砂金角色PV——「金手指」</a>
+                            <a href="https://www.bilibili.com/video/BV1oH4y1K7qh/" target="_blank">《崩壞:星穹鐵道》星旅一瞬：「非零和博弈」</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="full-screen-scroll">
+            <div id="home-header">
+                <alt="砂金" class="character-image">
+                <h1 class="main-title">
+                    <span class="gold-text">詭石東陵</span>  鎏光旑旎  絕境博弈 
+                </h1>
+            </div>
+
+            <div id="gambling-core">
+                <h2>—— 你永遠無法定義一枚籌碼的價值 ——</h2>
+                <p class="tagline">但我確信 它值得 一枚奇蹟 。</p>
+
+                <div id="roulette-display">
+                    <span class="icon-chip">◆</span>
+                    <span class="icon-chip">♠</span>
+                    <span class="icon-chip">◆</span>
+                </div>
+
+                <button id="spin-button" class="luxury-button" onclick="startSpin()">
+                    重 碼 加 注 (RAISE)
+                </button>
+
+                <p class="note">點擊將隨機導向一篇流光定影。</p>
+            </div>
+        </section>
+
+        <section id="about" class="full-screen-scroll">
+           <div class="report-container">
+                <div class="report-content">
+                    <div class="report-title-group">
+                        <h1 class="report-main-title">【砂金 Aventurine】</h1>
+                        <h2 class="report-subtitle">「一無所有，或者 贏下所有 !」</h2>
+                    </div>
+                    
+                    <div class="report-body">
+                        <p>星際和平公司「戰略投資部」的高級幹部、「石心十人」之一，基石為「詭弈砂金」。個性張揚的風險愛好者，時常面帶笑容，真實心意卻難以揣測，恪守「風險越大回報越大」的人生信條。靠著同命運的博弈贏得如今的地位，將人生視為一場高風險、高回報的投資，而他向來遊刃有餘。</p>
+                        
+                        <h3>【星際和平公司「戰略投資部」高級幹部，不良資產清算專家之一。】</h3>
+                        <p>「星際和平公司「戰略投資部」的高級幹部，「石心十人」之一，基石為「詭弈砂金」。個性張揚的風險愛好者，時常面帶笑容，真心卻難以揣測。靠著同命運的博弈贏得如今的地位，將人生視作一場高風險、高回報的投資，而他向來遊刃有餘。」</p>
+
+                        <blockquote class="report-quote">
+                            「你可以隨意利用我，也可以在恰當的時機背叛我，利用與背叛都是價值互換的手段。但我從不做賠本買賣，也希望你……不要讓我失望。」
+                        </blockquote>
+
+                        <h3>【來自茨岡尼亞的荒漠，立足於庇爾波因特】</h3>
+                        <p>「我來自茨岡尼亞的埃維金氏族，沒聽說過?那也很正常，因為我已是這片宇宙唯一的埃維金人」</p>
+                        <p>「那是一塊貧瘠荒漠的土地，出生時的一片大雨，使我的家人認為這是好運的象徵、是地母神的護佑。可笑的是，我也在一片片大雨中失去他們」</p>
+                        <p>「埃維金氏族向來與卡提卡氏族不對付，在公司的『調停』下，雙方結束了爭執，代價則是所有人的性命」</p>
+                        <p>「商品、奴隸、賭徒...靠著一次次的賭上『性命』不知不覺間我也爬上了這個位置，而今後，我也不介意繼續賭上一切」</p>
+                    </div>
+                </div>
+
+                <div class="report-image-box">
+                    <img src="images/Aventurine_HS.png" alt="人物大頭貼" class="profile-photo">
+                </div>
+            </div>
+        </section>
+        
+        <section id="journal" class="full-screen-scroll">
+            <div class="about-container">
+            <h1 class="section-title">公司與合作夥伴簡介 (PARTNERS)</h1>    
+            <div class="journal-list">
+ 
+                    <div class="mini-report">
+                        <div class="report-content">
+                            <h2 class="report-main-title">【星際和平公司】</h2>
+                            <h3 class="report-subtitle">「一切獻給，琥珀王 ! 」</h3>
+                            <div class="report-body">
+                                <p>在過往為支援星神克裡珀而組建的公司。現已成為銀河最大的經濟體。</p>
+                                <p>麾下以七個部門為主，分別是:傳統項目部、業務鞏固部、築材物流部、市場開拓部、戰略投資部、技術研發部、人才激勵部</p>
+                                <p>砂金所屬的石心十人便隸屬於戰略投資部</p>
+                            </div>
+                        </div>
+                        <div class="mini-image-box">
+                            <img src="images/Interastral_Peace_Corporation.jpg" alt="星際和平公司" class="profile-photo"> </div>
+                    </div>
+
+                    <div class="mini-report">
+                        <div class="report-content">
+                            <h2 class="report-main-title">維里塔斯·拉帝奧</h2>
+                            <h3 class="report-subtitle">「我甚至無法和一個蠢材解釋何為『蠢材』。」</h3>
+                            <div class="report-body">
+                                <p>直率而自我的博識學會學者，常以奇怪的石膏頭雕遮蔽面容。自幼便展露出過人的才智，如今卻以「庸人」自居。堅信智慧與創造力並不為天才獨有，致力於向全宇宙傳播知識，醫治名為愚鈍的頑疾。</p>
+                                <P>「博識學會的人大多急著和公司劃清界限，而拉帝奧……我想他也不喜歡我，但可惜的是，比起其他愚笨的傢伙，我多少算是個合格的交流物件。」</P>
+                            </div>
+                        </div>
+                        <div class="mini-image-box">
+                             <img src="images/Veritas_Ratio.png" alt="維里塔斯·拉帝奧" class="profile-photo">
+                        </div>
+                    </div>
+
+                    <div class="mini-report">
+                        <div class="report-content">
+                            <h2 class="report-main-title">【托帕&賬帳】</h2>
+                            <h3 class="report-subtitle">「錢是手段，不是目的，工作才使人快樂……這可是最基本的道理。」</h3>
+                            <div class="report-body">
+                                <p>星際和平公司旗下「戰略投資部」進階幹部托帕，領導特殊債務糾察小組。年紀輕輕便已成為「石心十人」之一，基石為「催討黃玉」。 搭檔次元撲滿「帳帳」則能敏銳感知「財富」所在，即便是安保、催債、精算等工作也不在話下。 如今他們正一同巡行銀河，追究各類影響公司業務開展的債務糾紛。</p>
+                                <p>「她老是希望在公司與客戶的平衡中找到最優解，但這世上哪有那麼多兩全其美？不過話說回來，她也走到了今天這個位置，對吧？」</p>
+                            </div>
+                        </div>
+                        <div class="mini-image-box">
+                             <img src="images/Topaz.png" alt="托帕&賬賬" class="profile-photo">
+                        </div>
+                    </div>
+
+                    <div class="mini-report">
+                        <div class="report-content">
+                            <h2 class="report-main-title">【翡翠女士】</h2>
+                            <h3 class="report-subtitle">財富是換取幸福的妙方，將財富交給渴望幸福的人，便是物盡其用。</h3>
+                            <div class="report-body">
+                                <p>星際和平公司「戰略投資部」的進階幹部，「石心十人」之一，基石為「典貸翡翠」。 冷艷優雅的放貸人，善於洞悉人心，有著名為「慈玉典押」的個人愛好。 願意為取得高價值的事物耐心等待，也擅長從看似一無所有的客戶身上榨取價值。</p>
+                                <p>「小心，這位女士的好意可都是暗裡標好了價格，我可是領教過好多次，早就習慣了。」</p>
+                            </div>
+                        </div>
+                        <div class="mini-image-box">
+                             <img src="images/Jade.png" alt="翡翠女士" class="profile-photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
